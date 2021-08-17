@@ -5,46 +5,46 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class Book implements Serializable {
 	
-	private String tItLe;
-	private String AuThOr;
-	private String CALLNO;
-	private int iD;
+	private String title;  //change "tItLe" to "title" 
+	private String authOr;  //change "AuThOr" to "author"
+	private String callNo;  //change "CALLNO" to "callNo"
+	private int id;  //change "iD" to "id" 
 	
 	private enum sTaTe { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
-	private sTaTe StAtE;
+	private state state;  //change "sTate StAtE" to "state state"
 	
 	
 	public Book(String author, String title, String callNo, int id) {
-		this.AuThOr = author;
-		this.tItLe = title;
-		this.CALLNO = callNo;
-		this.iD = id;
-		this.StAtE = sTaTe.AVAILABLE;
+		this.author = author; //change "AuThOr" to "author"
+		this.title = title;  //change "tItLe" to "title"
+		this.CALLNO = callNo; //change "CALLNO" to "callNo"
+		this.iD = id; //change "iD" to "id"
+		this.state = state.AVAILABLE; //change "StAtE = sTaTe.AVAILABLE" to "state = state.AVAILABLE"
 	}
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Book: ").append(iD).append("\n")
-		  .append("  Title:  ").append(tItLe).append("\n")
-		  .append("  Author: ").append(AuThOr).append("\n")
-		  .append("  CallNo: ").append(CALLNO).append("\n")
-		  .append("  State:  ").append(StAtE);
+		sb.append("Book: ").append(id).append("\n") //change "iD" to "id"
+		  .append("  Title:  ").append(title).append("\n")  //change "tItLe" to "title"
+		  .append("  Author: ").append(author).append("\n") //change "AuThOr" to "author"
+		  .append("  CallNo: ").append(callNo).append("\n") //change "CALLNO" to "callNo"
+		  .append("  State:  ").append(state); //change "StAtE" to "state"
 		
 		return sb.toString();
 	}
 
-	public Integer gEtId() {
-		return iD;
+	public Integer getId() { // change "gEtId" to "getId"
+		return id;  //change "iD" to "id"
 	}
 
-	public String gEtTiTlE() {
-		return tItLe;
+	public String getTitle() { //change "gEtTiTlE" to "getTitle"
+		return title;   //change "tItLe" to "title"
 	}
 
 
 	
-	public boolean iS_AvAiLaBlE() {
-		return StAtE == sTaTe.AVAILABLE;
+	public boolean isAvailable() {  // change " iS_AvAiLaBlE" to "isAvailable" 
+		return state == state.AVAILABLE; //change "StAtE == sTaTe.AVAILABLE" to "state = state.AVAILABLE"
 	}
 
 	
