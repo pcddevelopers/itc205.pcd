@@ -53,8 +53,8 @@ public class Book implements Serializable {
 	}
 
 	
-	public boolean iS_DaMaGeD() {
-		return StAtE == sTaTe.DAMAGED;
+	public boolean isDamaged() { //Change " iS_DaMaGeD" to "isDamaged"
+		return state == state.DAMAGED; // change "StAtE == sTaTe.DAMAGED" to "state == state.DAMAGED"
 	}
 
 	
