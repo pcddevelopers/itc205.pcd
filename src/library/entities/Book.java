@@ -58,38 +58,38 @@ public class Book implements Serializable {
 	}
 
 	
-	public void BoRrOw() {
-		if (StAtE.equals(sTaTe.AVAILABLE)) 
-			StAtE = sTaTe.ON_LOAN;
+	public void borrow() {  // change "BoRrOw" to "borrow"
+		if (state.equals(state.AVAILABLE))  // change "StAtE.equals(sTaTe.AVAILABLE)" to "state.equals(state.AVAILABLE)"
+			state = state.ON_LOAN;  //change "StAtE = sTaTe.ON_LOAN" to "state = state.ON_LOAN"
 		
 		else 
-			throw new RuntimeException(String.format("Book: cannot borrow while book is in state: %s", StAtE));
+			throw new RuntimeException(String.format("Book: cannot borrow while book is in state: %s", StAtE)); // change "StAtE" to "state"
 		
 		
 	}
 
 
-	public void ReTuRn(boolean DaMaGeD) {
-		if (StAtE.equals(sTaTe.ON_LOAN)) 
-			if (DaMaGeD) 
-				StAtE = sTaTe.DAMAGED;
+	public void return (boolean DAMAGED) {  //change "ReTuRn(boolean DaMaGeD) " to "return (boolean DAMAGED)"
+		if (state.equals(state.ON_LOAN)) // change "StAtE.equals(sTaTe.ON_LOAN)" to "state.equals(state.ON_LOAN)"
+			if (DAMAGED) // change "DaMaGeD" to "DAMAGED"
+				state = state.DAMAGED; //change "StAtE = sTaTe.DAMAGED" to "state = state.DAMAGED"
 			
 			else 
-				StAtE = sTaTe.AVAILABLE;
+				state = state.AVAILABLE; //change "StAtE == sTaTe.AVAILABLE" to "state = state.AVAILABLE"
 			
 		
 		else 
-			throw new RuntimeException(String.format("Book: cannot Return while book is in state: %s", StAtE));
+			throw new RuntimeException(String.format("Book: cannot Return while book is in state: %s", state)); // change "StAtE" to "state"
 				
 	}
 
 	
-	public void RePaIr() {
-		if (StAtE.equals(sTaTe.DAMAGED)) 
-			StAtE = sTaTe.AVAILABLE;
+	public void repair() { // change "RePaIr" to "repair"
+		if (state.equals(state.DAMAGED)) //change "StAtE.equals(sTaTe.DAMAGED)" to "state.equals(state.DAMAGED)"
+			state = state.AVAILABLE; ////change "StAtE == sTaTe.AVAILABLE" to "state = state.AVAILABLE"
 		
 		else 
-			throw new RuntimeException(String.format("Book: cannot repair while book is in state: %s", StAtE));
+			throw new RuntimeException(String.format("Book: cannot repair while book is in state: %s", state)); // change "StAtE" to "state"
 		
 	}
 
