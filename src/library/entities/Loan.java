@@ -6,44 +6,44 @@ import java.util.Date;
 @SuppressWarnings("serial")
 public class Loan implements Serializable {
 	
-	public static enum lOaN_sTaTe { CURRENT, OVER_DUE, DISCHARGED };
+	public static enum loanState { CURRENT, OVER_DUE, DISCHARGED }; //change loanState to loanState
 	
-	private int LoAn_Id;
-	private Book BoOk;
-	private Member MeMbEr;
-	private Date DaTe;
-	private lOaN_sTaTe StAtE;
+	private int loanId; // change LoAn_Id to loanId
+	private Book book; // change BoOk to book
+	private Member member;// change MeMbEr to member
+	private Date date; // change DaTe to date
+	private loanState state; //change StAtE to state, 
 
 	
-	public Loan(int loanId, Book bOoK, Member mEmBeR, Date DuE_dAtE) {
-		this.LoAn_Id = loanId;
-		this.BoOk = bOoK;
-		this.MeMbEr = mEmBeR;
-		this.DaTe = DuE_dAtE;
-		this.StAtE = lOaN_sTaTe.CURRENT;
+	public Loan(int loanId, Book book, Member member, Date dueDate) {
+		this.loanId = loanId;
+		this.book = book;
+		this.member = member;
+		this.date = dueDate; // change DuE_dAtE to dueDate
+		this.state = loanState.CURRENT;
 	}
 
 	
-	public void cHeCk_OvEr_DuE() {
-		if (StAtE == lOaN_sTaTe.CURRENT &&
-			Calendar.gEtInStAnCe().gEt_DaTe().after(DaTe)) 
-			this.StAtE = lOaN_sTaTe.OVER_DUE;			
+	public void checkOverdue() { // change cHeCk_OvEr_DuE to checkOverdue
+		if (state == loanState.CURRENT && //change StAtE to state
+			Calendar.getInstance().getDate().after(date)) //change gEtInStAnCe to getInstance, gEt_DaTe to getDate
+			this.state = loanState.OVER_DUE;			
 		
 	}
 
 	
-	public boolean Is_OvEr_DuE() {
-		return StAtE == lOaN_sTaTe.OVER_DUE;
+	public boolean isOverDue() { //change Is_OvEr_DuE to isOverDue
+		return state == loanState.OVER_DUE;
 	}
 
 	
-	public Integer GeT_Id() {
-		return LoAn_Id;
+	public Integer getId() { // change GeT_Id to getId
+		return loanId;
 	}
 
 
-	public Date GeT_DuE_DaTe() {
-		return DaTe;
+	public Date getDuedate() { // change GeT_DuE_DaTe to getDuedate
+		return date;
 	}
 	
 	
@@ -51,29 +51,29 @@ public class Loan implements Serializable {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("Loan:  ").append(LoAn_Id).append("\n")
-		  .append("  Borrower ").append(MeMbEr.GeT_ID()).append(" : ")
-		  .append(MeMbEr.GeT_LaSt_NaMe()).append(", ").append(MeMbEr.GeT_FiRsT_NaMe()).append("\n")
-		  .append("  Book ").append(BoOk.gEtId()).append(" : " )
-		  .append(BoOk.gEtTiTlE()).append("\n")
-		  .append("  DueDate: ").append(sdf.format(DaTe)).append("\n")
-		  .append("  State: ").append(StAtE);		
+		sb.append("Loan:  ").append(loanId).append("\n")
+		  .append("  Borrower ").append(member.GeT_ID()).append(" : ")
+		  .append(member.getLastname()).append(", ").append(member.getFirstname()).append("\n") // change GeT_FiRsT_NaMe to getFirstname, GeT_LaSt_NaMe to getLastname
+		  .append("  Book ").append(book.gEtId()).append(" : " )
+		  .append(book.getTitle()).append("\n") // change gEtTiTlE to getTitle
+		  .append("  DueDate: ").append(sdf.format(date)).append("\n")
+		  .append("  State: ").append(state);		
 		return sb.toString();
 	}
 
 
-	public Member GeT_MeMbEr() {
-		return MeMbEr;
+	public Member getMember() { //change GeT_MeMbEr to getMember
+		return member;
 	}
 
 
-	public Book GeT_BoOk() {
-		return BoOk;
+	public Book getBook() { // change GeT_BoOk to getBook
+		return book;
 	}
 
 
-	public void DiScHaRgE() {
-		StAtE = lOaN_sTaTe.DISCHARGED;		
+	public void discharge() {
+		state = loanState.DISCHARGED;		
 	}
 
 }
