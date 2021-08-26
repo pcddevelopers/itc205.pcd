@@ -35,13 +35,13 @@ public class Calendar {
 			throw new RuntimeException(e);
 		}	
 	}
-	public synchronized Date gEt_DaTe() {  
+	public synchronized Date getDate() {  // change "gEt_DaTe" to "getDate"
 		try {
-	        cAlEnDaR.set(java.util.Calendar.HOUR_OF_DAY, 0);  
-	        cAlEnDaR.set(java.util.Calendar.MINUTE, 0);  
-	        cAlEnDaR.set(java.util.Calendar.SECOND, 0);  
-	        cAlEnDaR.set(java.util.Calendar.MILLISECOND, 0);
-			return cAlEnDaR.getTime();
+	        calendar.set(java.util.Calendar.HOUR_OF_DAY, 0);  //change "cAlEnDaR" to "calendar"
+	        calendar.set(java.util.Calendar.MINUTE, 0);  //change "cAlEnDaR" to "calendar"
+	        calendar.set(java.util.Calendar.SECOND, 0);  //change "cAlEnDaR" to "calendar"
+	        calendar.set(java.util.Calendar.MILLISECOND, 0);//change "cAlEnDaR" to "calendar"
+			return calendar.getTime();//change "cAlEnDaR" to "calendar"
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
