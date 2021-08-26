@@ -23,19 +23,19 @@ public class Calendar {
 		calendar.add(java.util.Calendar.DATE, days);	// change "cAlEnDaR" to "calendar"	
 	}
 	
-	public synchronized void SeT_DaTe(Date DaTe) {
+	public synchronized void set_DATE(DATE DATE) {  // change "SeT_DaTe(Date DaTe)" to "set_DATE(DATE DATE"
 		try {
-			cAlEnDaR.setTime(DaTe);
-	        cAlEnDaR.set(java.util.Calendar.HOUR_OF_DAY, 0);  
-	        cAlEnDaR.set(java.util.Calendar.MINUTE, 0);  
-	        cAlEnDaR.set(java.util.Calendar.SECOND, 0);  
-	        cAlEnDaR.set(java.util.Calendar.MILLISECOND, 0);
+			calendar.setTime(DATE);  //change "cAlEnDaR.setTime(DaTe)"  to "calendar.setTime(DATE)"
+	        calendar.set(java.util.Calendar.HOUR_OF_DAY, 0);  //change "cAlEnDaR" to "calendar"
+	        calendar.set(java.util.Calendar.MINUTE, 0);   //change "cAlEnDaR" to "calendar"
+	        calendar.set(java.util.Calendar.SECOND, 0);   //change "cAlEnDaR" to "calendar"
+	        calendar.set(java.util.Calendar.MILLISECOND, 0); //change "cAlEnDaR" to "calendar"
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
 		}	
 	}
-	public synchronized Date gEt_DaTe() {
+	public synchronized Date gEt_DaTe() {  
 		try {
 	        cAlEnDaR.set(java.util.Calendar.HOUR_OF_DAY, 0);  
 	        cAlEnDaR.set(java.util.Calendar.MINUTE, 0);  
