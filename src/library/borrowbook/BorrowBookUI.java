@@ -19,14 +19,14 @@ public class BorrowBookUI {
 	}
 
 	
-	private String iNpUT(String PrOmPt) {
-		System.out.print(PrOmPt);
-		return InPuT.nextLine();
+	private String input(String prompt) { // change "InPuT" to "input" and "PrOmPt" to "prompt"
+		System.out.print(prompt); //change "PrOmPt" to "prompt"
+		return input.nextLine();// change "InPuT" to "input"
 	}	
 		
 		
-	private void OuTpUt(Object ObJeCt) {
-		System.out.println(ObJeCt);
+	private void  output(Object OBJECT) { //change " OuTpUt(Object ObJeCt)" to " output(Object OBJECT) "
+		System.out.println(object); //change "ObJeCt" to "object"
 	}
 	
 			
