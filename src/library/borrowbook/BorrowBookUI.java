@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class BorrowBookUI {
 	
-	public static enum uI_STaTe { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	public static enum UIstate { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };  //change "uI_STaTe" to "UIstate"
 
-	private bORROW_bOOK_cONTROL CoNtRoL;
-	private Scanner InPuT;
-	private uI_STaTe StaTe;
+	private borrowbookCONTROL control; // change " bORROW_bOOK_cONTROL CoNtRoL" to "borrowbookCONTROL control" 
+	private Scanner input; // change "InPuT" to "input"
+	private UIstate state; //change "uI_STaTe STaTe" to "UIstate state"
 
 	
-	public BorrowBookUI(bORROW_bOOK_cONTROL control) {
-		this.CoNtRoL = control;
+	public BorrowBookUI(borrowbookCONTROL control) { 
+		this.CoNtRoL = control; 
 		InPuT = new Scanner(System.in);
 		StaTe = uI_STaTe.INITIALISED;
 		control.SeT_Ui(this);
