@@ -30,20 +30,20 @@ public class BorrowBookUI {
 	}
 	
 			
-	public void SeT_StAtE(uI_STaTe StAtE) {
-		this.StaTe = StAtE;
+	public void setState(UIState STAtE) { // change "SeT_StAtE(uI_STaTe StAtE)" to " setState(UIState STAtE)"
+		this.state = state; // Change "this.StaTe = StAtE;" to "this.state = state"
 	}
 
 	
-	public void RuN() {
-		OuTpUt("Borrow Book Use Case UI\n");
+	public void run() { //change "RuN" to "run"
+		output("Borrow Book Use Case UI\n"); //change "OuTpUt" to "output"
 		
 		while (true) {
 			
-			switch (StaTe) {			
+			switch (state) { //change "StaTe" to "state" 			
 			
 			case CANCELLED:
-				OuTpUt("Borrowing Cancelled");
+				output("Borrowing Cancelled");  //change "OuTpUt" to "output"
 				return;
 
 				
