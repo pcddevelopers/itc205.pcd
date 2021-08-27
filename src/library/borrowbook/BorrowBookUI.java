@@ -11,11 +11,11 @@ public class BorrowBookUI {
 	private UIstate state; //change "uI_STaTe STaTe" to "UIstate state"
 
 	
-	public BorrowBookUI(borrowbookCONTROL control) { 
-		this.CoNtRoL = control; 
-		InPuT = new Scanner(System.in);
-		StaTe = uI_STaTe.INITIALISED;
-		control.SeT_Ui(this);
+	public BorrowBookUI(borrowbookCONTROL control) {  // change " bORROW_bOOK_cONTROL CoNtRoL" to "borrowbookCONTROL control"
+		this.control = control; //change "CoNtRoL" to "control"
+		input = new Scanner(System.in); // change "InPuT" to "input"
+		state = UIstate.INITIALISED; //change "StaTe = uI_STaTe.INITIALISED" to "state = UIstate.INITIALISED"
+		control.setUI(this); // change "SeT_Ui" to "setUI"
 	}
 
 	
