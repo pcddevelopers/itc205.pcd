@@ -36,8 +36,8 @@ public class returnBookUI { //change returnBookUI to returnBookUI
 				
 				else {
 					try {
-						int bookId = Integer.valueOf(bookInputstring).intValue(); // change bookId to bookId
-						control.bookScanned(bookId);//change bookScanned to bookScanned
+						int bookId = Integer.valueOf(bookInputstring).intValue(); // change Book_Id to bookId
+						control.bookScanned(bookId);//change bOoK_sCaNnEd to bookScanned
 					}
 					catch (NumberFormatException e) {
 						output("Invalid bookId");
@@ -46,7 +46,7 @@ public class returnBookUI { //change returnBookUI to returnBookUI
 				break;				
 				
 			case INSPECTING:
-				String ans = input("Is book damaged? (Y/N): ");//change ans to ans
+				String ans = input("Is book damaged? (Y/N): ");//change AnS to ans
 				boolean isDamaged = false; // change isDamaged to isDamaged
 				if (ans.toUpperCase().equals("Y")) 					
 					isDamaged = true;
@@ -76,7 +76,7 @@ public class returnBookUI { //change returnBookUI to returnBookUI
 	}
 	
 			
-	public void DiSpLaY(Object object) {
+	public void display(Object object) { //change DiSpLaY to display
 		output(object);
 	}
 	
