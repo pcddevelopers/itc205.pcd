@@ -64,23 +64,23 @@ public class BorrowBookUI {
 
 				
 			case RESTRICTED:
-				iNpUT("Press <any key> to cancel");
-				CoNtRoL.CaNcEl();
+				input("Press <any key> to cancel"); //change "iNpUT" to "input"
+				control.CANCEL(); //change "CoNtRoL.CaNcEl" to "control.CANCEL"
 				break;
 			
 				
 			case SCANNING:
-				String BoOk_StRiNg_InPuT = iNpUT("Scan Book (<enter> completes): ");
-				if (BoOk_StRiNg_InPuT.length() == 0) {
-					CoNtRoL.CoMpLeTe();
+				String bookStringInput = input("Scan Book (<enter> completes): "); //change " BoOk_StRiNg_InPuT = iNpUT" to "bookStringInput = input"
+				if (bookStringInput.length() == 0) { // change "BoOk_StRiNg_InPuT" to "bookStringInput"
+					control.COMPLETE(); //change "CoNtRoL.CoMpLeTe" to "control.COMPLETE"
 					break;
 				}
 				try {
-					int BiD = Integer.valueOf(BoOk_StRiNg_InPuT).intValue();
-					CoNtRoL.ScAnNeD(BiD);
+					int BiD = Integer.valueOf(bookStringInput).intValue(); //change "BiD" to "bid" and "BoOk_StRiNg_InPuT" to "bookStringInput"
+					control.SCANNED(bid); //change "CoNtRoL.ScAnNeD(BiD)" to "control.SCANNED(bid)"
 					
-				} catch (NumberFormatException e) {
-					OuTpUt("Invalid Book Id");
+				} catch (NumberFormatException e) { 
+					output("Invalid Book Id");//change "OuTpUt" to "output"
 				} 
 				break;
 					
