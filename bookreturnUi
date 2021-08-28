@@ -2,25 +2,25 @@ package library.returnBook;
 import java.util.Scanner;
 
 
-public class returnBookUI { //change returnBookUI to returnBookUI
+public class returnBookUI { //change ReturnBookUI to returnBookUI
 
-	public static enum uistate { INITIALISED, READY, INSPECTING, COMPLETED }; //change uistate to uistate
+	public static enum uistate { INITIALISED, READY, INSPECTING, COMPLETED }; //change uI_sTaTe to uistate
 
-	private returnBookcontrol control; // change returnBookcontrol to returbBookcontrol, control to control 
-	private Scanner input; //change input to input
-	private uistate state; // change state to state
+	private returnBookcontrol control; // change rETURN_bOOK_cONTROL to returbBookcontrol, CoNtRoL to control 
+	private Scanner input; //change iNpUt to input
+	private uistate state; // change state to StATe
 
 	
 	public returnBookUI(returnBookcontrol control) {
 		this.control = control;
 		input = new Scanner(System.in);
 		state = uistate.INITIALISED;
-		control.setUi(this); //change setUi to setUi
+		control.setUi(this); //change sEt_uI to setUi
 	}
 
 
 	public void run() {		//change rUN to run
-		output("Return Book Use Case UI\n"); // change output to output
+		ou(tput"Return Book Use Case UI\n"); // change oUtPuT to output
 		
 		while (true) {
 			
@@ -47,11 +47,11 @@ public class returnBookUI { //change returnBookUI to returnBookUI
 				
 			case INSPECTING:
 				String ans = input("Is book damaged? (Y/N): ");//change AnS to ans
-				boolean isDamaged = false; // change isDamaged to isDamaged
+				boolean isDamaged = false; // change Is_DAmAgEd to isDamaged
 				if (ans.toUpperCase().equals("Y")) 					
 					isDamaged = true;
 				
-				control.dischargeLoan(isDamaged); //change dischargeLoan to dischargeLoan
+				control.dischargeLoan(isDamaged); //change dIsChArGe_lOaN to dischargeLoan
 			
 			case COMPLETED:
 				output("Return processing complete");
@@ -65,13 +65,13 @@ public class returnBookUI { //change returnBookUI to returnBookUI
 	}
 
 	
-	private String input(String prompt) { // change prompt to prompt
+	private String input(String prompt) { // change PrOmPt to prompt
 		System.out.print(prompt);
 		return input.nextLine();
 	}	
 		
 		
-	private void output(Object object) { // change object to object
+	private void output(Object object) { // change ObJeCt to object
 		System.out.println(object);
 	}
 	
