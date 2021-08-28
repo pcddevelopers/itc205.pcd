@@ -98,20 +98,20 @@ public class BorrowBookUI {
 				
 				
 			case COMPLETED:
-				OuTpUt("Borrowing Completed");
+				output("Borrowing Completed"); //Change "OuTpUt" to "output"
 				return;
 	
 				
 			default:
-				OuTpUt("Unhandled state");
-				throw new RuntimeException("BorrowBookUI : unhandled state :" + StaTe);			
+				output("Unhandled state"); //Change "OuTpUt" to "output"
+				throw new RuntimeException("BorrowBookUI : unhandled state :" + state);	//change "StaTe" to "state"	
 			}
 		}		
 	}
 
 
-	public void DiSpLaY(Object object) {
-		OuTpUt(object);		
+	public void display(Object object) { //change "DiSpLaY" to "display"
+		output(object);	//Change "OuTpUt" to "output"
 	}
 
 
