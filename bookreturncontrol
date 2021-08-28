@@ -3,37 +3,37 @@ import library.entities.Book;
 import library.entities.library;
 import library.entities.Loan;
 
-public class returnBookcontrol { // change returnBookcontrol to returnBookcontrol
+public class returnBookcontrol { // change rETURN_bOOK_cONTROL to returnBookcontrol
 
-	private returnBookui Ui; //change returnBookui to returnBookui
+	private returnBookui Ui; //change ReturnBookUI to returnBookui
 	private enum controlstate { INITIALISED, READY, INSPECTING }; //change cOnTrOl_sTaTe to controlstate
-	private controlstate state; //change state to state
+	private controlstate state; //change sTaTe to state
 	
-	private library library; // change library to library
-	private Loan currentLoan; //change currentLoan to currentLoan
+	private library library; // change lIbRaRy to library
+	private Loan currentLoan; //change CurrENT_loan to currentLoan
 	
 
 	public returnBookcontrol() {
-		this.library = library.getInstance(); // change getInstance to getInstance
+		this.library = library.getInstance(); // change GeTiNsTaNcE to getInstance
 		state = controlstate.INITIALISED;
 	}
 	
 	
-	public void setUi(returnBookui uI) { //change setUi to setUi
+	public void setUi(returnBookui uI) { //change sEt_uI to setUi
 		if (!state.equals(controlstate.INITIALISED)) 
 			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
 		
 		this.Ui = uI;
-		uI.setState(returnBookui.uiState.READY); // change setState to setState, uiState to uiState
+		uI.setState(returnBookui.uiState.READY); // change sEt_sTaTe to setState, uI_sTaTe to uiState
 		state = controlstate.READY;		
 	}
 
 
-	public void bookScanned(int bookId) { // change bookScanned to bookScanned, bookId to bookId
+	public void bookScanned(int bookId) { // change bOoK_sCaNnEd to bookScanned, bOoK_iD to bookId
 		if (!state.equals(controlstate.READY)) 
 			throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
 		
-		Book currentBook = library.getBook(bookId); //change currentBook to currentBook, gEt_BoOk to getBook
+		Book currentBook = library.getBook(bookId); //change cUrReNt_bOoK to currentBook, gEt_BoOk to getBook
 		
 		if (currentBook == null) {
 			ui.Display("Invalid Book Id"); //change Ui.DiSpLaY to ui.Display
@@ -60,7 +60,7 @@ public class returnBookcontrol { // change returnBookcontrol to returnBookcontro
 	}
 
 
-	public void sCaNnInG_cOmPlEtE() {
+	public void scanningComplete() { //change sCaNnInG_cOmPlEtE to scanningComplete
 		if (!state.equals(controlstate.READY)) 
 			throw new RuntimeException("ReturnBookControl: cannot call scanningComplete except in READY state");
 			
@@ -68,7 +68,7 @@ public class returnBookcontrol { // change returnBookcontrol to returnBookcontro
 	}
 
 
-	public void dIsChArGe_lOaN(boolean iS_dAmAgEd) {
+	public void dischargeLoan(boolean isDamaged) { // change dIsChArGe_lOaN to dischargeLoan, iS_dAmAgEd to isDamaged
 		if (!state.equals(controlstate.INSPECTING)) 
 			throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
 		
