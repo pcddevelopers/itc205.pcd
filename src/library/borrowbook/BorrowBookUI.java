@@ -48,17 +48,17 @@ public class BorrowBookUI {
 
 				
 			case READY:
-				String MEM_STR = iNpUT("Swipe member card (press <enter> to cancel): ");
-				if (MEM_STR.length() == 0) {
-					CoNtRoL.CaNcEl();
+				String memStr = iNpUT("Swipe member card (press <enter> to cancel): "); //change "MEM_STR" to "memStr"
+				if (memStr.length() == 0) {  //change "MEM_STR" to "memStr"
+					control.CANCEL(); //change "CoNtRoL.CaNcEl" to "control.CANCEL"
 					break;
 				}
 				try {
-					int MeMbEr_Id = Integer.valueOf(MEM_STR).intValue();
-					CoNtRoL.SwIpEd(MeMbEr_Id);
+					int memberID = Integer.valueOf(memStr).intValue(); //change "MeMbEr_Id" to "memberID" & "MEM_STR" to "memStr"
+					control.swiped(memberID); //change "CoNtRoL.SwIpEd(MeMbEr_Id)" to "control.swiped(memberID)"
 				}
 				catch (NumberFormatException e) {
-					OuTpUt("Invalid Member Id");
+					output("Invalid Member Id");//change "OuTpUt" to "output"
 				}
 				break;
 
