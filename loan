@@ -5,8 +5,8 @@ import java.util.Date;
 
 @SuppressWarnings("serial")
 public class Loan implements Serializable {
-	
-	public static enum loanState { CURRENT, OVER_DUE, DISCHARGED }; //change loanState to loanState
+	 
+	public static enum loanState { CURRENT, OVER_DUE, DISCHARGED }; //change loanState to loanState, OVER_DUE to overDue
 	
 	private int loanId; // change LoAn_Id to loanId
 	private Book book; // change BoOk to book
@@ -27,13 +27,13 @@ public class Loan implements Serializable {
 	public void checkOverdue() { // change cHeCk_OvEr_DuE to checkOverdue
 		if (state == loanState.CURRENT && //change StAtE to state
 			Calendar.getInstance().getDate().after(date)) //change gEtInStAnCe to getInstance, gEt_DaTe to getDate
-			this.state = loanState.OVER_DUE;			
+			this.state = loanState.overDue;			
 		
 	}
 
 	
 	public boolean isOverDue() { //change Is_OvEr_DuE to isOverDue
-		return state == loanState.OVER_DUE;
+		return state == loanState.overDue;
 	}
 
 	
