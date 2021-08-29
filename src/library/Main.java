@@ -26,7 +26,7 @@ public class Main {
 	private static SimpleDateFormat SDF;
 	
 	
-	private static String Get_menu() {
+	private static String getMenu() { //change "Get_menu" to "getMenu"
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append("\nLibrary Main Menu\n\n")
@@ -55,19 +55,19 @@ public class Main {
 	public static void main(String[] args) {		
 		try {			
 			IN = new Scanner(System.in);
-			LIB = Library.GeTiNsTaNcE();
-			CAL = Calendar.gEtInStAnCe();
+			LIB = Library.getInstance(); //change "GeTiNsTaNcE" to "getInstance"
+			CAL = Calendar.getInstance(); //change "GeTiNsTaNcE" to "getInstance"
 			SDF = new SimpleDateFormat("dd/MM/yyyy");
 	
-			for (Member m : LIB.lIsT_MeMbErS()) {
+			for (Member m : LIB.listMembers()) { //change "LIB.lIsT_MeMbErS" to "listMembers"
 				output(m);
 			}
 			output(" ");
-			for (Book b : LIB.lIsT_BoOkS()) {
+			for (Book b : LIB.listBooks()) { //change "lIsT_BoOkS" to "listBooks"
 				output(b);
 			}
 						
-			MENU = Get_menu();
+			MENU = getMenu(); //change "Get_menu" to "getMenu"
 			
 			boolean e = false;
 			
@@ -135,7 +135,8 @@ public class Main {
 		output("\nEnded\n");
 	}	
 
-		private static void PAY_FINES() {
+	
+	private static void PAY_FINES() {
 		new PayFineUI(new pAY_fINE_cONTROL()).RuN();		
 	}
 
