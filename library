@@ -50,7 +50,7 @@ public class Library implements Serializable {
 
 	
 	public static synchronized Library getInstance() {		//change GeTiNsTaNcE to getInstance
-		if (SeLf == null) {
+		if (self == null) { //change SeLf to self 
 			Path PATH = Paths.get(libraryFile);			
 			if (Files.exists(PATH)) {	
 				try (ObjectInputStream fileLibrary = new ObjectInputStream(new FileInputStream(libraryFile));) { // change LiBrArY_FiLe to fileLibrary
@@ -63,14 +63,14 @@ public class Library implements Serializable {
 					throw new RuntimeException(e);
 				}
 			}
-			else SeLf = new Library();
+			else self = new Library(); ////change SeLf to self 
 		}
 		return SeLf;
 	}
 
 	
 	public static synchronized void SaVe() {
-		if (SeLf != null) {
+		if (self != null) { //change SeLf to self 
 			SeLf.loanDate = calendar.getInstance().getDate(); //change gEt_DaTe to getDate
 			try (ObjectOutputStream fileLibrary = new ObjectOutputStream(new FileOutputStream(libraryFile));) {
 				fileLibrary.writeObject(SeLf);
@@ -196,8 +196,8 @@ public class Library implements Serializable {
 	}
 
 	
-	public double calculateFine(Loan LoAn) { // change CaLcUlAtE_OvEr_DuE_FiNe to calculateFine
-		if (LoAn.IsOverDue()) {
+	public double calculateFine(Loan LoAn) { // change CaLcUlAtE_OvEr_DuE_FiNe to calculateFine, LoAn to loan 
+		if (loan.IsOverDue()) {
 			long daysOdue = calendar.getInstance().getDifference(LoAn.getDdate()); // change GeT_DaYs_DiFfErEnCe to getDifference // change DaYs_OvEr_DuE to daysOdue
 			double fInE = daysOdue * finePerDay;
 			return fine; //change fiNe to fine;
