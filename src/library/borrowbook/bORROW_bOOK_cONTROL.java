@@ -117,9 +117,9 @@ public class borrowBookCONTROL { //change "bORROW_bOOK_cONTROL" to "borrowBookcO
 	}
 
 	
-	public void CaNcEl() {
-		uI.SeT_StAtE(BorrowBookUI.uI_STaTe.CANCELLED);
-		sTaTe = CONTROL_STATE.CANCELLED;
+	public void cancel() { //change "CaNcEl" to "cancel"
+		Ui.setState(BorrowBookUI.UiState.CANCELLED); //change "uI.SeT_StAtE(BorrowBookUI.uI_STaTe.CANCELLED)" to "Ui.setState(BorrowBookUI.UiState.CANCELLED)"
+		state = CONTROLSTATE.CANCELLED; //change "sTaTe = CONTROL_STATE.CANCELLED" to "state = CONTROLSTATE.CANCELLED;"
 	}
 	
 	
