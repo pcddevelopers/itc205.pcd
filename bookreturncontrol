@@ -23,8 +23,8 @@ public class returnBookcontrol { // change rETURN_bOOK_cONTROL to returnBookcont
 		if (!state.equals(controlstate.INITIALISED)) 
 			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
 		
-		this.Ui = uI;
-		uI.setState(returnBookui.uiState.READY); // change sEt_sTaTe to setState, uI_sTaTe to uiState
+		this.Ui = ui; //change uI to ui
+		ui.setState(returnBookui.uiState.READY); // change sEt_sTaTe to setState, uI_sTaTe to uiState
 		state = controlstate.READY;		
 	}
 
@@ -74,7 +74,7 @@ public class returnBookcontrol { // change rETURN_bOOK_cONTROL to returnBookcont
 		
 		library.dischargeLoan(currentLoan, isDamaged); //change DiScHaRgE_LoAn to dischargeLoan, iS_dAmAgEd to isDamaged
 		currentLoan = null;
-		Ui.setState(returnBookui.uiState.READY);
+		ui.setState(returnBookui.uiState.READY);
 		state = control.READY;				
 	}
 
