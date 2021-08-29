@@ -17,24 +17,24 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class Library implements Serializable {
 	
-	private static final String libraryFile = "library.obj";// change  libraryFile to libraryFile
-	private static final int loanLimit = 2; // change loanLimit to loanLimit
+	private static final String libraryFile = "library.obj";// change  lIbRaRyFiLe to libraryFile
+	private static final int loanLimit = 2; // change lOaNlImIt to loanLimit
 	private static final int loanPeriod = 2; 
-	private static final double finePerDay = 1.0;//change finePerDay to finePerDay
+	private static final double finePerDay = 1.0;//change FiNe_PeR_DaY to finePerDay
 	private static final double maxFinesOwed = 1.0;
 	private static final double damageFee = 2.0;
 	
 	private static Library SeLf;
-	private int bookId; // change bookId to bookId
-	private int memberId; // change memberId to memberId
-	private int loanId; // change loanId to loanId
-	private Date loanDate; // change loanDate to loanDate
+	private int bookId; // change bOoK_Id to bookId
+	private int memberId; // change mEmBeR_Id to memberId
+	private int loanId; // change lOaN_Id to loanId
+	private Date loanDate; // change lOaN_DaTe to loanDate
 	
-	private Map<Integer, Book> catalog; // change catalog to catalog
-	private Map<Integer, Member> members;//change members to members
-	private Map<Integer, Loan> loans;//change loans to loans
-	private Map<Integer, Loan> currentLoans;//change currentLoans to currentLoans
-	private Map<Integer, Book> damagedBooks;//change damagedBooks to damagedBooks
+	private Map<Integer, Book> catalog; // change CaTaLoG to catalog
+	private Map<Integer, Member> members;//change MeMbErS to members
+	private Map<Integer, Loan> loans;//change LoAnS to loans
+	private Map<Integer, Loan> currentLoans;//change CuRrEnT_LoAnS to currentLoans
+	private Map<Integer, Book> damagedBooks;//change DaMaGeD_BoOkS to damagedBooks
 	
 
 	private Library() {
@@ -49,29 +49,29 @@ public class Library implements Serializable {
 	}
 
 	
-	public static synchronized Library getInstance() {		//change getInstance to getInstance
-		if (SeLf == null) {
+	public static synchronized Library getInstance() {		//change GeTiNsTaNcE to getInstance
+		if (self == null) { //change SeLf to self 
 			Path PATH = Paths.get(libraryFile);			
 			if (Files.exists(PATH)) {	
-				try (ObjectInputStream fileLibrary = new ObjectInputStream(new FileInputStream(libraryFile));) { // change fileLibrary to fileLibrary
+				try (ObjectInputStream fileLibrary = new ObjectInputStream(new FileInputStream(libraryFile));) { // change LiBrArY_FiLe to fileLibrary
 			    
 					SeLf = (Library) fileLibrary.readObject();
-					calendar.getInstance().setDate(SeLf.loanDate); //change Calender to calender, change setDate to setDate
+					calendar.getInstance().setDate(SeLf.loanDate); //change Calender to calender, change SeT_DaTe to setDate
 					fileLibrary.close();
 				}
 				catch (Exception e) {
 					throw new RuntimeException(e);
 				}
 			}
-			else SeLf = new Library();
+			else self = new Library(); ////change SeLf to self 
 		}
 		return SeLf;
 	}
 
 	
 	public static synchronized void SaVe() {
-		if (SeLf != null) {
-			SeLf.loanDate = calendar.getInstance().getDate(); //change getDate to getDate
+		if (self != null) { //change SeLf to self 
+			SeLf.loanDate = calendar.getInstance().getDate(); //change gEt_DaTe to getDate
 			try (ObjectOutputStream fileLibrary = new ObjectOutputStream(new FileOutputStream(libraryFile));) {
 				fileLibrary.writeObject(SeLf);
 				fileLibrary.flush();
@@ -131,14 +131,14 @@ public class Library implements Serializable {
 	}
 
 	
-	public Book aDd_BoOk(String a, String t, String c) {		
+	public Book addBook(String a, String t, String c) {	//change aDd_BoOk to addBook	
 		Book b = new Book(a, t, c, getNextbookId());
 		catalog.put(b.getId(), b);		
 		return b;
 	}
 
 	
-	public Member gEt_MeMbEr(int memberId) {
+	public Member getMember(int memberId) { // change gEt_MeMbEr to getMember
 		if (members.containsKey(memberId)) 
 			return members.get(memberId);
 		return null;
@@ -196,9 +196,9 @@ public class Library implements Serializable {
 	}
 
 	
-	public double calculateFine(Loan LoAn) { // change CaLcUlAtE_OvEr_DuE_FiNe to calculateFine
-		if (LoAn.IsOverDue()) {
-			long daysOdue = calendar.getInstance().getDifference(LoAn.getDdate()); // change to getDifference // change DaYs_OvEr_DuE to daysOdue
+	public double calculateFine(Loan LoAn) { // change CaLcUlAtE_OvEr_DuE_FiNe to calculateFine, LoAn to loan 
+		if (loan.IsOverDue()) {
+			long daysOdue = calendar.getInstance().getDifference(LoAn.getDdate()); // change GeT_DaYs_DiFfErEnCe to getDifference // change DaYs_OvEr_DuE to daysOdue
 			double fInE = daysOdue * finePerDay;
 			return fine; //change fiNe to fine;
 		}
