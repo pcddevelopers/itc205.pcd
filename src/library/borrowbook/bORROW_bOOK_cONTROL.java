@@ -58,27 +58,28 @@ public class borrowBookcONTROL { //change "bORROW_bOOK_cONTROL" to "borrowBookcO
 	}
 	
 	
-	public void ScAnNeD(int bOoKiD) {
-		bOoK = null;
-		if (!sTaTe.equals(CONTROL_STATE.SCANNING)) 
-			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
+	public void scanned(int bookId) { //change "ScAnNeD(int bOoKiD)" to "scanned(int bookId)"
+		book = null; //change "bOoK" to "book"
+		if (!state.equals(CONTROLSTATE.SCANNING))  //change "sTaTe.equals(CONTROL_STATE.SCANNING)" to "state.equals(CONTROLSTATE.SCANNING)"
+			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state"); 
 			
-		bOoK = lIbRaRy.gEt_BoOk(bOoKiD);
-		if (bOoK == null) {
-			uI.DiSpLaY("Invalid bookId");
+		book = library.getBook(bookID); // change "bOoK = lIbRaRy.gEt_BoOk(bOoKiD)" to "book = library.getBook(bookID)"
+		if (book == null) { //change "bOoK" to "book"
+			Ui.DISPLAY("Invalid bookId"); //change "uI.DiSpLaY" to "Ui.DISPLAY"
 			return;
 		}
-		if (!bOoK.iS_AvAiLaBlE()) {
-			uI.DiSpLaY("Book cannot be borrowed");
+		if (!book.isAvailable()) { //change "bOoK.iS_AvAiLaBlE()" to "book.isAvailable()"
+			Ui.DISPLAY("Book cannot be borrowed");//change "uI.DiSpLaY" to "Ui.DISPLAY"
 			return;
 		}
-		pEnDiNg_LiSt.add(bOoK);
-		for (Book B : pEnDiNg_LiSt) 
-			uI.DiSpLaY(B.toString());
+		pendingList.add(book); //change "pEnDiNg_LiSt.add(bOoK)" to "pendingList.add(book)"
+		for (Book B : pendingList)  //change "pEnDiNg_LiSt)" to "pendingList"
+			Ui.DISPLAY(B.toString());//change "uI.DiSpLaY" to "Ui.DISPLAY"
 		
-		if (lIbRaRy.gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(mEmBeR) - pEnDiNg_LiSt.size() == 0) {
-			uI.DiSpLaY("Loan limit reached");
-			CoMpLeTe();
+		if (library.getNumberOfLoansRemainingForMember(member) - pendingList.size() == 0) { //(lIbRaRy.gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(mEmBeR) - pEnDiNg_LiSt.size() == 0) 
+			                                                                                   //to "(library.getNumberOfLoansRemainingForMember(member) - pendingList.size() == 0)"
+			Ui.DISPLAY("Loan limit reached"); //change "uI.DiSpLaY" to "Ui.DISPLAY"
+			COMPLETE(); //change "CoMpLeTe" to "COMPLETE"
 		}
 	}
 	
