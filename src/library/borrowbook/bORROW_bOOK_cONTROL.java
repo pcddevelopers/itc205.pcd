@@ -37,23 +37,23 @@ public class borrowBookcONTROL { //change "bORROW_bOOK_cONTROL" to "borrowBookcO
 	}
 
 		
-	public void SwIpEd(int mEmBeR_Id) {
-		if (!sTaTe.equals(CONTROL_STATE.READY)) 
+	public void swiped(int memberId) {//change "SwIpEd(int mEmBeR_Id)" to "swiped(int memberId)"
+		if (!state.equals(CONTROLSTATE.READY)) //change " (!sTaTe.equals(CONTROL_STATE.READY))" to "(!state.equals(CONTROLSTATE.READY))"
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
-		mEmBeR = lIbRaRy.gEt_MeMbEr(mEmBeR_Id);
-		if (mEmBeR == null) {
-			uI.DiSpLaY("Invalid memberId");
+		member = library.getMember(memberId);//change "mEmBeR = lIbRaRy.gEt_MeMbEr(mEmBeR_Id)" to "member = library.getMember(memberId)"
+		if (mEmBeR == null) {//change "mEmBeR" to "member"
+			Ui.display("Invalid memberId"); //change "uI.DiSpLaY" to "Ui.Display"
 			return;
 		}
-		if (lIbRaRy.cAn_MeMbEr_BoRrOw(mEmBeR)) {
-			pEnDiNg_LiSt = new ArrayList<>();
-			uI.SeT_StAtE(BorrowBookUI.uI_STaTe.SCANNING);
-			sTaTe = CONTROL_STATE.SCANNING; 
+		if (library.canMemberBorrow(member)) { //change "lIbRaRy.cAn_MeMbEr_BoRrOw(mEmBeR)" to "library.canMemberBorrow(member)"
+			pendingList = new ArrayList<>(); // change "pEnDiNg_LiSt" to "pendingList"
+			Ui.setState(BorrowBookUI.UiState.SCANNING);//change "uI.SeT_StAtE(BorrowBookUI.uI_STaTe.SCANNING)" to "Ui.setState(BorrowBookUI.UiState.SCANNING)"
+			state = CONTROLSTATE.SCANNING;   //change "sTaTe = CONTROL_STATE.READY" to "state=CONTROLSTATE"  
 		}
 		else {
-			uI.DiSpLaY("Member cannot borrow at this time");
-			uI.SeT_StAtE(BorrowBookUI.uI_STaTe.RESTRICTED); 
+			uI.DiSpLaY("Member cannot borrow at this time"); //change "uI.DiSpLaY" to "Ui.Display"
+			Ui.setState(BorrowBookUI.UiState.RESTRICTED); //change "uI.SeT_StAtE(BorrowBookUI.uI_STaTe.RESTRICTED)" to "Ui.setState(BorrowBookUI.UiState.RESTRICTED)"
 		}
 	}
 	
