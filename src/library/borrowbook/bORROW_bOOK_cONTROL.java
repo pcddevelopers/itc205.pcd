@@ -7,7 +7,7 @@ import library.entities.Library;
 import library.entities.Loan;
 import library.entities.Member;
 
-public class borrowBookcONTROL { //change "bORROW_bOOK_cONTROL" to "borrowBookcONTROL"
+public class borrowBookCONTROL { //change "bORROW_bOOK_cONTROL" to "borrowBookcONTROL"
 	
 	private BorrowBookUI uI;
 	
@@ -18,17 +18,17 @@ public class borrowBookcONTROL { //change "bORROW_bOOK_cONTROL" to "borrowBookcO
 	
 	private List<Book> pendingList; // change "pEnDiNg_LiSt" to "pendingList" 
 	private List<Loan> completedList; // change "cOmPlEtEd_LiSt" to "completedList"
-	private Book bOoK; //change "bOoK" to "book"
+	private Book book; //change "bOoK" to "book"
 	
 	
 	public borrowBookcONTROL() {//change "bORROW_bOOK_cONTROL" to "borrowBookcONTROL"
 		this.library = Library.getInstance(); //change ".lIbRaRy = Library.GeTiNsTaNcE" to "library = Library.getInstance"
-		sTaTe = CONTROL_STATE.INITIALISED; //change "sTaTe" to "state"
+		state = CONTROLSTATE.INITIALISED; //change "sTaTe" to "state"
 	}
 	
 
 	public void setUi(BorrowBookUI Ui) {  //change "SeT_Ui" to "setUi"
-		if (!state.equals(CONTROL_STATE.INITIALISED))//change "sTaTe" to "state"
+		if (!state.equals(CONTROLSTATE.INITIALISED))//change "sTaTe" to "state"
 			throw new RuntimeException("BorrowBookControl: cannot call setUI except in INITIALISED state");
 			
 		this.Ui = Ui; //change "uI" to "Ui"
@@ -42,7 +42,7 @@ public class borrowBookcONTROL { //change "bORROW_bOOK_cONTROL" to "borrowBookcO
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
 		member = library.getMember(memberId);//change "mEmBeR = lIbRaRy.gEt_MeMbEr(mEmBeR_Id)" to "member = library.getMember(memberId)"
-		if (mEmBeR == null) {//change "mEmBeR" to "member"
+		if (member == null) {//change "mEmBeR" to "member"
 			Ui.display("Invalid memberId"); //change "uI.DiSpLaY" to "Ui.Display"
 			return;
 		}
@@ -52,7 +52,7 @@ public class borrowBookcONTROL { //change "bORROW_bOOK_cONTROL" to "borrowBookcO
 			state = CONTROLSTATE.SCANNING;   //change "sTaTe = CONTROL_STATE.READY" to "state=CONTROLSTATE"  
 		}
 		else {
-			uI.DiSpLaY("Member cannot borrow at this time"); //change "uI.DiSpLaY" to "Ui.Display"
+			Ui.Display("Member cannot borrow at this time"); //change "uI.DiSpLaY" to "Ui.Display"
 			Ui.setState(BorrowBookUI.UiState.RESTRICTED); //change "uI.SeT_StAtE(BorrowBookUI.uI_STaTe.RESTRICTED)" to "Ui.setState(BorrowBookUI.UiState.RESTRICTED)"
 		}
 	}
