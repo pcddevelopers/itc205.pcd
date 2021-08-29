@@ -26,7 +26,7 @@ public class Main {
 	private static SimpleDateFormat SDF;
 	
 	
-	private static String getMenu() { //change getMenu to getMenu
+	private static String getMenu() { //change Get_menu to getMenu
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append("\nLibrary Main Menu\n\n")
@@ -55,15 +55,15 @@ public class Main {
 	public static void main(String[] args) {		
 		try {			
 			IN = new Scanner(System.in);
-			LIB = Library.getInstance(); //change getInstance to getInstance
-			CAL = Calendar.getInstance();
+			LIB = Library.getInstance(); //change GeTiNsTaNcE to getInstance
+			CAL = Calendar.getInstance(); // change gEtInStAnCe to getInstance
 			SDF = new SimpleDateFormat("dd/MM/yyyy");
 	
-			for (Member m : LIB.listMembers()) { // change listMembers to listMembers
+			for (Member m : LIB.listMembers()) { // change lIsT_MeMbErS to listMembers
 				output(m);
 			}
 			output(" ");
-			for (Book b : LIB.listBooks()) { // change listBooks to listBooks
+			for (Book b : LIB.listBooks()) { // change lIsT_BoOkS to listBooks
 				output(b);
 			}
 						
@@ -73,13 +73,13 @@ public class Main {
 			
 			while (!e) {
 				
-				output("\n" + SDF.format(CAL.getDate())); // change getDate to getDate
+				output("\n" + SDF.format(CAL.getDate())); // change gEt_DaTe to getDate
 				String c = input(MENU);
 				
 				switch (c.toUpperCase()) {
 				
 				case "M": 
-					addMember(); // change addMember to addMember
+					addMember(); // change ADD_MEMBER to addMember
 					break;
 					
 				case "LM": 
@@ -87,11 +87,11 @@ public class Main {
 					break;
 					
 				case "B": 
-					addBook(); //change addBook to addBook
+					addBook(); //change ADD_BOOK to addBook
 					break;
 					
 				case "LB": 
-					listBooks();
+					listBooks(); //change LIST_BOOKS to listBooks
 					break;
 					
 				case "FB": 
@@ -99,19 +99,19 @@ public class Main {
 					break;
 					
 				case "L": 
-					borrowBook(); // change borrowBook to borrowBook
+					borrowBook(); // change BORROW_BOOK to borrowBook
 					break;
 					
 				case "R": 
-					returnBook(); //change returnBook to returnBook
+					returnBook(); //change RETURN_BOOK to returnBook
 					break;
 					
 				case "LL": 
-					listCurrentloans(); // change listCurrentloans to listCurrentloans
+					listCurrentloans(); // change LIST_CURRENT_LOANS to listCurrentloans
 					break;
 					
 				case "P": 
-					payFines(); // change payFines to payFines
+					payFines(); // change PAY_FINES to payFines
 					break;
 					
 				case "T": 
@@ -136,12 +136,12 @@ public class Main {
 	}	
 
 	
-	private static void payFines() { // change payFines to payFines
-		new PayFineUI(new payFinecontrol()).run();		//change payFinecontrol to payFinecontrol
+	private static void payFines() { // change PAY_FINES to payFines
+		new PayFineUI(new payFinecontrol()).run();		//change pAY_fINE_cONTROL to payFinecontrol, RuN to run
 	}
 
 
-	private static void listCurrentloans() { //change listCurrentloans to listCurrentloans
+	private static void listCurrentloans() { //change LIST_CURRENT_LOANS to listCurrentloans
 		output("");
 		for (Loan loan : LIB.listCurrentloans()) {
 			output(loan + "\n");
@@ -169,17 +169,17 @@ public class Main {
 
 
 	private static void borrowBook() { //change borrowBook to borrowBook
-		new BorrowBookUI(new borrowBookcontrol()).run();		//change borrowBookcontrol to borrowBookcontrol
+		new BorrowBookUI(new borrowBookcontrol()).run();		//change bORROW_bOOK_cONTROL to borrowBookcontrol
 	}
 
 
 	private static void returnBook() { // change returnBook to returnBook
-		new ReturnBookUI(new returnBookcontrol()).run();		//change returnBookcontrol to returnBookcontrol
+		new ReturnBookUI(new returnBookcontrol()).run();		//change rETURN_bOOK_cONTROL to returnBookcontrol
 	}
 
 
 	private static void FIX_BOOKS() {
-		new FixBookUI(new fixBookcontrol()).RuN();		//change fixBookcontrol to fixBookcontrol
+		new FixBookUI(new fixBookcontrol()).RuN();		//change fIX_bOOK_cONTROL to fixBookcontrol
 	}
 
 
@@ -187,7 +187,7 @@ public class Main {
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
 			CAL.incrementDate(days);
-			LIB.checkCurrentloans();// change checkCurrentloans to checkCurrentloans
+			LIB.checkCurrentloans();// change cHeCk_CuRrEnT_LoAnS to checkCurrentloans
 			output(SDF.format(CAL.getDate()));
 			
 		} catch (NumberFormatException e) {

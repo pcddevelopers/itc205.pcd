@@ -1,0 +1,88 @@
+package library.returnBook;
+import java.util.Scanner;
+
+
+public class returnBookUI { //change returnBookUI to returnBookUI
+
+	public static enum uistate { INITIALISED, READY, INSPECTING, COMPLETED }; //change uistate to uistate
+
+	private returnBookcontrol control; // change returnBookcontrol to returbBookcontrol, control to control 
+	private Scanner input; //change input to input
+	private uistate state; // change state to state
+
+	
+	public returnBookUI(returnBookcontrol control) {
+		this.control = control;
+		input = new Scanner(System.in);
+		state = uistate.INITIALISED;
+		control.setUi(this); //change setUi to setUi
+	}
+
+
+	public void run() {		//change rUN to run
+		output("Return Book Use Case UI\n"); // change output to output
+		
+		while (true) {
+			
+			switch (state) {
+			
+			case INITIALISED:
+				break;
+				
+			case READY:
+				String bookInputstring = input("Scan Book (<enter> completes): "); //change BoOk_input_StRiNg to bookInputstring
+				if (bookInputstring.length() == 0) 
+					control.scanningComplete(); // change sCaNnInG_cOmPlEtE to scanningComplete
+				
+				else {
+					try {
+						int bookId = Integer.valueOf(bookInputstring).intValue(); // change Book_Id to bookId
+						control.bookScanned(bookId);//change bOoK_sCaNnEd to bookScanned
+					}
+					catch (NumberFormatException e) {
+						output("Invalid bookId");
+					}					
+				}
+				break;				
+				
+			case INSPECTING:
+				String ans = input("Is book damaged? (Y/N): ");//change AnS to ans
+				boolean isDamaged = false; // change isDamaged to isDamaged
+				if (ans.toUpperCase().equals("Y")) 					
+					isDamaged = true;
+				
+				control.dischargeLoan(isDamaged); //change dischargeLoan to dischargeLoan
+			
+			case COMPLETED:
+				output("Return processing complete");
+				return;
+			
+			default:
+				output("Unhandled state");
+				throw new runtimeException("returnBookUI : unhandled state :" + state);			
+			}
+		}
+	}
+
+	
+	private String input(String prompt) { // change prompt to prompt
+		System.out.print(prompt);
+		return input.nextLine();
+	}	
+		
+		
+	private void output(Object object) { // change object to object
+		System.out.println(object);
+	}
+	
+			
+	public void display(Object object) { //change DiSpLaY to display
+		output(object);
+	}
+	
+	public void sEt_state(uistate state) {
+		this.state = state;
+	}
+
+	
+}
